@@ -2,7 +2,7 @@
 <div class="banner">
   <div class="container" id="flex-box">
       <div class="form">
-        <%= simple_form_for :search, url: root_path, method: 'GET', :html => { class: 'arrondi' } do |f| %>
+        <%= simple_form_for :search, url: root_path, method: 'GET' do |f| %>
           <%= f.input :location, label: 'Where do you live ?', placeholder: 'Type your address' %>
           <%= f.input :start_date, label: 'Booking starting date', placeholder: 'dd/mm/yyyy' %>
           <%= f.input :end_date, label: 'Booking ending date', placeholder: 'dd/mm/yyyy' %>
