@@ -18,6 +18,7 @@ gem 'webpacker'
 
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
 
 
 group :development do
