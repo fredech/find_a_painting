@@ -1,12 +1,12 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
-  
+
   def search
   end
 
   def index
     @paintings = policy_scope(Painting)
-    @paintings = Paintings.all
+    @paintings = Painting.all
   end
 
   def show
@@ -38,6 +38,7 @@ class PaintingsController < ApplicationController
       redirect_to painting_path(@painting_id), notice: 'Painting was successfully updated'
     else
       render :edit
+    end
   end
 
   def destroy
@@ -56,5 +57,5 @@ class PaintingsController < ApplicationController
   def painting_params
     params.require (:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
   end
-    
+
 end
