@@ -6,9 +6,10 @@
           <%= f.input :location, label: 'where is the painting?', placeholder: 'Paris' %>
           <%= f.input :price, label: 'Rental Price per day in €', placeholder: '300 000 ' %>
           <%= f.input :author, label: "Artist's name", placeholder: 'De Vinci' %>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
           <%= f.input :style, label: "What is the painting's style ?", placeholder: 'Choose in the list', collection: Painting::STYLES, input_html:{class: 'select2'} %>
+          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo' %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
           <%= f.submit "Create", class: "btn-medium" %>
         <% end %>
       </div>

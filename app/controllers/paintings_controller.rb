@@ -10,7 +10,6 @@ class PaintingsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -19,7 +18,6 @@ class PaintingsController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -46,7 +44,6 @@ class PaintingsController < ApplicationController
     redirect_to paintings_path, notice: 'Painting was successfully destroyed'
   end
 
-
   private
 
   def set_painting
@@ -57,5 +54,4 @@ class PaintingsController < ApplicationController
   def painting_params
     params.require(:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
   end
-
 end
