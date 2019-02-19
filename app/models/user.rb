@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   #call_backs
-  before_save :ensure_authentication_token
+  # before_save :ensure_authentication_token
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
