@@ -5,6 +5,11 @@ class Painting < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
+  mount_uploader :photo, PhotoUploader
+  validates_presence_of :photo
+  validates_integrity_of :photo
+  validates_processing_of :photo
+
   STYLES = %w(Abstract Abstraction Expressionism Impressionism Modernism Painterly Photorealism Realism)
   validates :name, presence: true
   validates :location, presence: true
