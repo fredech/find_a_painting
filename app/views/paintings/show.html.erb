@@ -1,8 +1,8 @@
 <div class="container">
   <div id="information-container">
-    <h1>
-      Information on painting: <%= @painting.name %>
-    </h1>
+    <br>
+    <br>
+    <h1>Information on painting: <%= @painting.name %></h1>
   </div>
   <div id="painting-container">
     <div id="painting-text">
@@ -20,9 +20,11 @@
           <p><strong>Style: </strong><%= @painting.style %> </p>
         </li>
       </ul>
+      <%= link_to '<i class="fa fa-chevron-circle-left"></i> back'.html_safe, root_path %>
     </div>
     <div id="painting-photo">
       <%= cl_image_tag @painting.photo, height: 300, width: 400, crop: :fill %>
     </div>
+    <br>
   </div>
 </div>
