@@ -4,6 +4,10 @@ class PaintingPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def create?
     user_is_owner_or_admin?
   end
@@ -15,7 +19,6 @@ class PaintingPolicy < ApplicationPolicy
   def destroy?
     user_is_owner_or_admin?
   end
-
 
   class Scope < Scope
     def resolve

@@ -26,7 +26,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(painting_params)
     @painting.user = current_user
     authorize @painting
-    if @painting.save?
+    if @painting.save
       redirect_to @painting, notice: 'Painting was successfully created.'
     else
       render :new
@@ -55,7 +55,7 @@ class PaintingsController < ApplicationController
   end
 
   def painting_params
-    params.require (:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
+    params.require(:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
   end
 
 end
