@@ -1,7 +1,21 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
+  skip_after_action :verify_authorized, only:[:search]
 
   def search
+    if params[:search][:location].empty? && params[:search][:style].empty?
+
+      render :home
+    elsif params[:search][:location].empty? && params[:search][:style].empty? == false
+
+       @paintings = Painting.where(style: params[:search][:style])
+    elsif params[:search][:style].empty? && params[:search][:location].empty? == false
+
+       @paintings = Painting.where(location: params[:search][:location])
+    else
+
+      @paintings = Painting.where(location: params[:search][:location], style: params[:search][:style])
+    end
   end
 
   def index
