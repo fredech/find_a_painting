@@ -9,18 +9,13 @@
 Painting.destroy_all
 User.destroy_all
 
-puts 'Creating 1 fake user...'
-  user = User.new(
-    first_name: "Alice",
-    last_name: "Brewer",
-    password: "topsecret",
-    password_confirmation: "topsecret",
-    address: "xxxx",
-    email: "alicebrewer09@gmail.com"
-  )
-  user.save!
-puts 'Finished!'
+puts "create Users ..."
 
+user = User.create(first_name: "le", last_name: "sagouin", address: "Paris", email: "lesagouin@gmail.com", password:"topsecret", password_confirmation:"topsecret")
+
+puts "#{User.count} users created"
+
+puts "create Paintings ..."
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586498/Paintings/whilster.jpg"
 painting_one = Painting.new(name: 'Night', location: "Paris", price: "100", author: "Whistler", style: "Painterly", user: user)
@@ -71,3 +66,7 @@ url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586428/Paintings/d
 painting_ten = Painting.new(name: 'Mona', location: "Paris", price: "10", author: "Da Vinci", style: "Painterly", user_id: user.id)
 painting_ten.remote_photo_url = url
 painting_ten.save!
+ 
+puts "#{Painting.count} paintings created"
+
+puts 'Finished!'
