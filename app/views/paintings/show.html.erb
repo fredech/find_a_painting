@@ -1,0 +1,28 @@
+<div class="container">
+  <div id="information-container">
+    <h1>
+      Information on painting: <%= @painting.name %>
+    </h1>
+  </div>
+  <div id="painting-container">
+    <div id="painting-text">
+      <ul>
+        <li>
+          <p><strong>Author: </strong><%= @painting.author %> </p>
+        </li>
+        <li>
+          <p><strong>Price: </strong><%= @painting.price %> </p>
+        </li>
+        <li>
+          <p><strong>Location: </strong><%= @painting.location %> </p>
+        </li>
+         <li>
+          <p><strong>Style: </strong><%= @painting.style %> </p>
+        </li>
+      </ul>
+    </div>
+    <div id="painting-photo">
+      <%= cl_image_tag @painting.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
+</div>

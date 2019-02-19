@@ -1,0 +1,31 @@
+.container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#information-container {
+  padding-bottom: 20px;
+  & h1 {
+    font-size: 40px;
+  }
+}
+
+#painting-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $glitter;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+}
+
+#painting-text {
+  background-color: rgba(250,250,250,0.5);
+  padding: 50px;
+  align-items: center;
+  border-radius: 4px;
+  opacity: 0.5;
+  width: 400px;
+  text-align: left;
+}
