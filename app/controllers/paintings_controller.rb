@@ -1,5 +1,8 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
+  
+  def search
+  end
 
   def index
     @paintings = policy_scope(Painting)
@@ -53,4 +56,5 @@ class PaintingsController < ApplicationController
   def painting_params
     params.require (:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
   end
+    
 end
