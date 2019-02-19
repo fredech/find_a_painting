@@ -1,0 +1,19 @@
+
+
+.form {
+  width: 400px;
+  background-color: rgba(250, 250, 250, 0.5);
+  margin: 10px;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+#flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrondi {
+  border-radius: 4px;
+}
