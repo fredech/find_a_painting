@@ -2,13 +2,11 @@
 <div class="banner">
   <div class="container" id="flex-box">
       <div class="form">
-        <%= simple_form_for :search, url: root_path, method: 'GET' do |f| %>
+        <%= simple_form_for :search, url: search_path, method: 'GET' do |f| %>
           <%= f.input :location, label: 'Where do you live ?', placeholder: 'Type your address' %>
           <%= f.input :start_date, label: 'Booking starting date', placeholder: 'dd/mm/yyyy' %>
           <%= f.input :end_date, label: 'Booking ending date', placeholder: 'dd/mm/yyyy' %>
           <%= f.input :style, label: 'What style of painting are you looking for ?', placeholder: 'Choose in the list', collection: Painting::STYLES, input_html:{class: 'select2'} %>
-  <!--         <%#= f.input :photo %>
-  <!--         <%#= f.input :photo_cache, as: :hidden %> -->
           <%= f.submit "Search", class: "btn-medium" %>
         <% end %>
       </div>
@@ -16,11 +14,9 @@
     <div>
       <h1>Find the perfect painting <strong>for your place</strong> !</h1>
       <p>Update your walls </p>
-      <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
     </div>
   </div>
 </div>
 
 
 
-<%#= f.input :category, label: ‘Catégorie’, error: ‘Choisir dans la liste’, collection: Recipe::CATEGORIES,  %>
