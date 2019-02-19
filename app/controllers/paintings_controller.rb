@@ -24,7 +24,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(painting_params)
     @painting.user = current_user
     authorize @painting
-    if @painting.save?
+    if @painting.save
       redirect_to @painting, notice: 'Painting was successfully created.'
     else
       render :new
