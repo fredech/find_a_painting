@@ -1,6 +1,6 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   skip_after_action :verify_authorized, only:[:search, :index]
 
   def search
@@ -20,9 +20,6 @@ class PaintingsController < ApplicationController
   end
 
   def index
-    # @paintings = policy_scope(Painting)
-    # @paintings = Painting.all
-
     @painting = policy_scope(Painting)
     @paintings = Painting.where.not(latitude: nil, longitude: nil)
     @markers = @paintings.map do |painting|
