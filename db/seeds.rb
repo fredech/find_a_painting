@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Booking.destroy_all
 Painting.destroy_all
 User.destroy_all
 
@@ -69,5 +70,19 @@ painting_ten.remote_photo_url = url
 painting_ten.save!
 
 puts "#{Painting.count} paintings created"
+
+puts "creating Bookings..."
+
+booking = Booking.create(start_date: "20/02/2019", end_date: "20/03/2019", total_paid: "100", painting_id: painting_one.id, user_id: user.id)
+
+booking = Booking.create(start_date: "20/02/2017", end_date: "20/03/2017", total_paid: "100", painting_id: painting_two.id, user_id: user.id)
+
+booking = Booking.create(start_date: "20/02/2016", end_date: "20/03/2016", total_paid: "100", painting_id: painting_three.id, user_id: user.id)
+
+booking = Booking.create(start_date: "20/04/2015", end_date: "23/06/2015", total_paid: "100", painting_id: painting_four.id, user_id: user.id)
+
+booking = Booking.create(start_date: "22/04/2017", end_date: "15/07/2017", total_paid: "100", painting_id: painting_five.id, user_id: user.id)
+
+puts "#{Booking.count} bookings created"
 
 puts 'Finished!'
