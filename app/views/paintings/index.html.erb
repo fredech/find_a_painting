@@ -1,0 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(<%= image_path('dashboard1.jpeg') %>);">
+  <h1>Here are the paintings!</h1>
+</div>
+<div class="container">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
