@@ -1,11 +1,12 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
-  skip_after_action :verify_authorized, only:[:search]
+  skip_before_action :authenticate_user!, only: :index
+  skip_after_action :verify_authorized, only:[:search, :index]
 
   def search
     if params[:search][:location].empty? && params[:search][:style].empty?
 
-      render :home
+      redirect_to paintings_path
     elsif params[:search][:location].empty? && params[:search][:style].empty? == false
 
        @paintings = Painting.where(style: params[:search][:style])
@@ -19,8 +20,19 @@ class PaintingsController < ApplicationController
   end
 
   def index
-    @paintings = policy_scope(Painting)
-    @paintings = Painting.all
+    # @paintings = policy_scope(Painting)
+    # @paintings = Painting.all
+
+    @painting = policy_scope(Painting)
+    @paintings = Painting.where.not(latitude: nil, longitude: nil)
+    @markers = @paintings.map do |painting|
+      {
+        lng: painting.longitude,
+        lat: painting.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { painting: painting }),
+        image_url: helpers.asset_url('map_pin.png')
+      }
+    end
   end
 
   def show
