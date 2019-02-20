@@ -123,6 +123,9 @@
   font-size: 0.9em;
 }
 .snip1423 i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -133,10 +136,12 @@
   line-height: 56px;
   text-align: center;
   border-radius: 50%;
-  background-color: #666666;
-  color: #ffffff;
+  background-color: #FF5A5F;
+  color: white;
   font-size: 1.6em;
   border: 4px solid #ffffff;
+  font-weight: bold;
+  opacity: 0.8;
 }
 .snip1423 a {
   position: absolute;
@@ -153,6 +158,7 @@
 }
 .snip1423:hover i,
 .snip1423.hover i {
-  background-color: #2980b9;
+  background-color: #FF5A5F;
+  opacity: 1;
 }
 

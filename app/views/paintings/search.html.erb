@@ -1,7 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(<%= image_path('dashboard1.jpeg') %>);">
-  <h1>Here are the paintings!</h1>
-</div>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
+  <h4><%= @paintings.length %> Paintings for you</h4>
   <div class="row">
     <% @paintings.each do |painting| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -13,7 +15,7 @@
             <div class="price">
               <%= painting.price %> € / day
             </div>
-          </figcaption><i class="ion-android-cart"></i>
+          </figcaption><i class="ion-plus"></i>
           <a href=""></a>
           <%= link_to '', painting_path(painting.id) %>
         </figure>
