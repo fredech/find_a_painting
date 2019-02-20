@@ -1,36 +1,24 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
   skip_after_action :verify_authorized, only:[:search]
-
-  def search
-
-  end
-
-  def index
-    @bookings = policy_scope(Booking)
-    @bookings = Booking.all
-  end
-
-  def show
-
-  end
-
-  def new
-    @booking = Booking.new
-    authorize @booking
-  end
 
   def edit
 
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @painting = Painting.find(params[:painting_id])
+    @booking = Booking.new
+    @booking.start_date = params[:booking][:start_date]
+    @booking.end_date = params[:booking][:end_date]
+    @booking.painting = @painting
     @booking.user = current_user
+    @booking.total_paid = @booking.painting.price
+    authorize @booking
     if @booking.save
       redirect_to dashboard_path, notice: 'Booking was successfully created'
     else
-      render :new
+      redirect_to painting_path(params[:painting_id])
   end
 
   def update
@@ -46,14 +34,13 @@ class BookingsController < ApplicationController
 
   end
 
-  private
-
     def set_boooking
       @booking = Booking.find(params[:id])
       authorize @booking
     end
 
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :total_paid)
+      params.require(:booking).permit(:start_date, :end_date)
     end
+  end
 end
