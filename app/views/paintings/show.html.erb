@@ -11,7 +11,7 @@
           <p><strong>Author: </strong><%= @painting.author %> </p>
         </li>
         <li>
-          <p><strong>Price($): </strong><%= @painting.price %> </p>
+          <p><strong>Rental price per day: </strong><%= @painting.price %> </p>
         </li>
         <li>
           <p><strong>Location: </strong><%= @painting.location %> </p>
@@ -26,11 +26,11 @@
       <%= cl_image_tag @painting.photo, height: 300, width: 400, crop: :fill %>
     </div>
     <br>
-    <div class="form">
+    <div id="booking-form">
       <%= simple_form_for [@painting, Booking.new]  do |f| %>
         <%= f.input :start_date, label: 'Start Date', placeholder: 'dd/mm/yyyy' %>
         <%= f.input :end_date, label: 'End Date', placeholder: 'dd/mm/yyyy' %>
-        <%= f.submit "Book!", class: "btn-medium" %>
+        <%= f.submit "Book!", class: "btn-treehouse" %>
       <% end %>
     </div>
   </div>

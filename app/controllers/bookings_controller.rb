@@ -1,3 +1,5 @@
+require 'date'
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
   skip_after_action :verify_authorized, only:[:search]
@@ -13,7 +15,9 @@ class BookingsController < ApplicationController
     @booking.end_date = params[:booking][:end_date]
     @booking.painting = @painting
     @booking.user = current_user
-    @booking.total_paid = @booking.painting.price
+    start = DateTime.parse(@booking.start_date)
+    endate = DateTime.parse(@booking.end_date)
+    @booking.total_paid = (endate - start) * @booking.painting.price
     authorize @booking
     if @booking.save
       redirect_to dashboard_path, notice: 'Booking was successfully created'
