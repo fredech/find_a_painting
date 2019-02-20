@@ -5,7 +5,9 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { inithover } from '../components/button';
 
 initUpdateNavbarOnScroll();
 initSelect2();
 previewImageOnFileSelect();
+inithover();

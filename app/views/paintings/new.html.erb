@@ -1,18 +1,19 @@
-
-  <div class="container" id="flex-box">
-      <div class="form">
-        <%= simple_form_for(@painting) do |f| %>
-          <%= f.input :name, label: "What is the Painting's name ?", placeholder: 'La Joconde' %>
-          <%= f.input :location, label: 'where is the painting?', placeholder: 'Paris' %>
-          <%= f.input :price, label: 'Rental Price per day in €', placeholder: '300 000 ' %>
-          <%= f.input :author, label: "Artist's name", placeholder: 'De Vinci' %>
-          <%= f.input :style, label: "What is the painting's style ?", placeholder: 'Choose in the list', collection: Painting::STYLES, input_html:{class: 'select2'} %>
-          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-          <%= f.input :photo_cache, as: :hidden %>
-          <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-          <br>
-          <%= f.submit "Create", class: "btn-medium" %>
-        <% end %>
-      </div>
-  </div>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(<%= image_path('dashboard2.jpeg') %>);">
+  <h1>Add a painting</h1>
+</div>
+<div class="container" id="flex-box">
+    <div class="form">
+      <%= simple_form_for(@painting) do |f| %>
+        <%= f.input :name, label: "What is the Painting's name ?", placeholder: 'La Joconde' %>
+        <%= f.input :location, label: 'where is the painting?', placeholder: 'Paris' %>
+        <%= f.input :price, label: 'Rental Price per day in €', placeholder: '300 000 ' %>
+        <%= f.input :author, label: "Artist's name", placeholder: 'De Vinci' %>
+        <%= f.input :style, label: "What is the painting's style ?", placeholder: 'Choose in the list', collection: Painting::STYLES, input_html:{class: 'select2'} %>
+        <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+        <br>
+        <%= f.submit "Create", class: "btn-medium" %>
+      <% end %>
+    </div>
+</div>

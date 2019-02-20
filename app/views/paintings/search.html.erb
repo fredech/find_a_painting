@@ -1,8 +1,7 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(<%= image_path('dashboard1.jpeg') %>);">
+  <h1>Here are the paintings!</h1>
+</div>
 <div class="container">
-  <br>
-  <br>
-  <h1>Here are the paintings corresponding to your search</h1>
-
   <div class="row">
     <% @paintings.each do |painting| %>
       <div class="col-xs-12 col-sm-4">
