@@ -13,10 +13,8 @@
 #painting-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  background-color: $glitter;
+  align-items: top;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 20px;
 }
 
@@ -31,11 +29,16 @@
 }
 
 #booking-form {
-  width: 300px;
+  display: flex;
+  width: 600px;
+  height: 400px;
   background-color: rgba(250, 250, 250, 0.5);
   margin: 10px;
-  padding: 30px;
+  padding: 40px;
   border-radius: 4px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-treehouse {
@@ -53,3 +56,79 @@
   text-decoration: none;
   color: white;
 }
+
+#caption {
+  background-color: $white;
+  padding: 20px;
+  margin-top:10px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+}
+
+// @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,700');
+// @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+// .snip1583 {
+//   font-family: 'Fira Sans Extra Condensed', Arial, sans-serif;
+//   position: relative;
+//   display: inline-block;
+//   overflow: hidden;
+//   margin: 10px;
+//   width: 100%;
+//   font-size: 16px;
+//   background-color: #fff;
+//   color: #111;
+//   line-height: 1.2em;
+//   text-align: left;
+// }
+
+// .snip1583 *,
+// .snip1583 *:before,
+// .snip1583 *:after {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+//   -webkit-transition: all 0.35s ease;
+//   transition: all 0.35s ease;
+// }
+
+// .snip1583 img {
+//   max-width: 100%;
+//   vertical-align: top;
+// }
+
+// .snip1583 figcaption {
+//   padding: 10px;
+//   width: 600px;
+// }
+
+// .snip1583 h3 {
+//   font-size: 1.4rem;
+//   font-weight: 400;
+//   margin: 0 0 4px;
+// }
+
+// .snip1583 .price {
+//   margin: 8px 0;
+//   font-weight: 700;
+//   color: #4da3e2;
+//   font-size: 1.5rem;
+// }
+
+
+// .snip1583:hover a,
+// .snip1583.hover a {
+//   opacity: 1;
+//   -webkit-transform: translateX(0);
+//   transform: translateX(0);
+// }
+
+// .snip1583:hover a:nth-child(2),
+// .snip1583.hover a:nth-child(2) {
+//   -webkit-transition-delay: 0.1s;
+//   transition-delay: 0.1s;
+// }
+
+// .snip1583:hover a:nth-child(3),
+// .snip1583.hover a:nth-child(3) {
+//   -webkit-transition-delay: 0.2s;
+//   transition-delay: 0.2s;
+// }
+
