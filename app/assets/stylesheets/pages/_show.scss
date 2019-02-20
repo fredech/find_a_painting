@@ -29,3 +29,27 @@
   width: 400px;
   text-align: left;
 }
+
+#booking-form {
+  width: 300px;
+  background-color: rgba(250, 250, 250, 0.5);
+  margin: 10px;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+}
+
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
