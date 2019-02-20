@@ -1,37 +1,27 @@
-<div class="container">
-  <div id="information-container">
-    <br>
-    <br>
-    <h1>Information on painting: <%= @painting.name %></h1>
-  </div>
-  <div id="painting-container">
-    <div id="painting-text">
-      <ul>
-        <li>
-          <p><strong>Author: </strong><%= @painting.author %> </p>
-        </li>
-        <li>
-          <p><strong>Rental price per day: </strong><%= @painting.price %> </p>
-        </li>
-        <li>
-          <p><strong>Location: </strong><%= @painting.location %> </p>
-        </li>
-         <li>
-          <p><strong>Style: </strong><%= @painting.style %> </p>
-        </li>
-      </ul>
-      <%= link_to '<i class="fa fa-chevron-circle-left"></i> back'.html_safe, root_path %>
-    </div>
-    <div id="painting-photo">
-      <%= cl_image_tag @painting.photo, height: 300, width: 400, crop: :fill %>
-    </div>
-    <br>
-    <div id="booking-form">
-      <%= simple_form_for [@painting, Booking.new]  do |f| %>
-        <%= f.input :start_date, label: 'Start Date', placeholder: 'dd/mm/yyyy' %>
-        <%= f.input :end_date, label: 'End Date', placeholder: 'dd/mm/yyyy' %>
-        <%= f.submit "Book!", class: "btn-treehouse" %>
-      <% end %>
-    </div>
+<br>
+<br>
+<br>
+<div class="banner" style="background-image: url(<%= image_path('rax.jpg') %>);">
+  <h1>More information on your painting</h1>
+</div>
+<br>
+</br>
+<div id="painting-container">
+    <figure class="snip1583">
+      <%= cl_image_tag @painting.photo, height: 500, width: 600, crop: :fill %>
+      <div id="caption">
+        <h3><%= @painting.name %></h3>
+        <p><%= @painting.author %> | <%= @painting.style %> | <%= @painting.location %></p>
+        <div class="price"><strong>Price per day: € </strong><%= @painting.price %></div>
+      </div>
+    </figure>
+  <div id="booking-form">
+    <%= simple_form_for [@painting, Booking.new]  do |f| %>
+      <%= f.input :start_date, label: 'Start Date', placeholder: 'dd/mm/yyyy' %>
+      <%= f.input :end_date, label: 'End Date', placeholder: 'dd/mm/yyyy' %>
+      <%= f.submit "Book!", class: "btn-treehouse" %>
+    <% end %>
   </div>
 </div>
+
+
