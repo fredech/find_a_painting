@@ -19,7 +19,7 @@ initSelect2();
 previewImageOnFileSelect();
 inithover();
 initMapbox();
-init_autocomplete();
+initAutocomplete();
 
 const card = document.querySelector(".snip1423");
 if ( card ) {

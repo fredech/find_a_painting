@@ -1,0 +1,14 @@
+<div class="col-xs-12 col-sm-6 col-md-4">
+  <figure class="snip1423">
+    <%= cl_image_tag painting.photo, height: 200, width: 260, crop: :fill%>
+    <figcaption>
+      <h3><%= painting.name  %></h3>
+      <p><%= painting.author  %></p>
+      <div class="price">
+        <%= painting.price %> € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href=""></a>
+    <%= link_to '', painting_path(painting.id) %>
+  </figure>
+</div>
