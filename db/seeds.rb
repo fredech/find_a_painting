@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "create Users ..."
 
-user = User.create(first_name: "le", last_name: "sagouin", address: "Paris", email: "lesagouin@gmail.com", password:"topsecret", password_confirmation:"topsecret")
+user = User.create(first_name: "Anne", last_name: "Onime", address: "Paris", email: "anne.onime@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 user.photo = "avatar.png"
 
 puts "#{User.count} users created"
@@ -68,6 +68,17 @@ url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586428/Paintings/d
 painting_ten = Painting.new(name: 'Mona', location: "Paris", price: "10", author: "Da Vinci", style: "Painterly", user: user)
 painting_ten.remote_photo_url = url
 painting_ten.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550674174/julien1.jpg"
+painting_eleven = Painting.new(name: 'PoneyClub', location: "Paris", price: "1000000", author: "Julien da Silva", style: "Painterly", user: user)
+painting_eleven.remote_photo_url = url
+painting_eleven.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550674174/dessin_kevin.jpg"
+painting_twelve = Painting.new(name: 'auto-portrait', location: "Paris", price: "1100000", author: "Kevin Robert", style: "Painterly", user: user)
+painting_twelve.remote_photo_url = url
+painting_twelve.save!
+
 
 puts "#{Painting.count} paintings created"
 
