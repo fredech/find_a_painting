@@ -5,7 +5,7 @@ class PaintingsController < ApplicationController
   def search
     if params[:search][:location].empty? && params[:search][:style].empty?
 
-      render :home
+      redirect_to paintings_path
     elsif params[:search][:location].empty? && params[:search][:style].empty? == false
 
        @paintings = Painting.where(style: params[:search][:style])
