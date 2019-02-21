@@ -11,9 +11,9 @@ $hulu: 'Nunito Sans', sans-serif;
 $heading: 'Montserrat', sans-serif;
 $body: 'Roboto', sans-serif;
 
-body {
-  background: linear-gradient(to right, $aqua, $green);
-}
+// body {
+//   background: linear-gradient(to right, $aqua, $green);
+// }
 
 .tab_container {
   background: $white;
@@ -25,16 +25,16 @@ body {
   box-shadow: 2px 5px 20px rgba($gray, .5);
 }
 
-.logo {
-  float: right;
-  margin-right: 12px;
-  margin-top: 12px;
-  font-family: $hulu;
-  color: $logo;
-  font-weight: 900;
-  font-size: 1.2em;
-  letter-spacing: 1px;
-}
+// .logo {
+//   float: right;
+//   margin-right: 12px;
+//   margin-top: 12px;
+//   font-family: $hulu;
+//   color: $logo;
+//   font-weight: 900;
+//   font-size: 1.2em;
+//   letter-spacing: 1px;
+// }
 
 .CTA {
   width: 80px;
@@ -72,7 +72,7 @@ body {
   box-shadow: 3px 3px 10px rgba($gray, .5);
 }
 
-nav a {
+.tab_container nav a {
   list-style: none;
   padding: 35px;
   color: $white;
@@ -122,7 +122,7 @@ nav a:hover .text2 {
   height: 100%;
 }
 
-h1 {
+.tab_container h1 {
   font-family: $heading;
   color: $green;
   font-size: 1.2em;
@@ -130,7 +130,7 @@ h1 {
   margin-bottom: 35px;
 }
 
-h2 {
+.tab_container h2 {
   color: $gray;
   font-family: $body;
   width: 80%;
@@ -140,7 +140,7 @@ h2 {
   margin-left: 2px;
 }
 
-p {
+.tab_container p {
   border-width: 1px;
   border-style: solid;
   border-image: linear-gradient(to right, $aqua, rgba($green,.5)) 1 0%;
@@ -151,12 +151,12 @@ p {
   padding: 7px 0;
   color: $black;
 }
-span {
+.tab_container span {
   font-size: .7em;
   color: $gray;
 }
 
-.btn {
+.tab_btn {
   float: right;
   font-family: $body;
   text-transform: uppercase;
@@ -165,12 +165,12 @@ span {
   color: $aqua;
 }
 
-.btn:hover {
+.tab_btn:hover {
   text-decoration: underline;
   font-weight: 900;
 }
 
-input {
+.tab_container input {
   border: 1px solid lighten($gray,40%);
   font-family: $body;
   padding: 2px;
@@ -194,7 +194,7 @@ input {
   opacity: 0;
 }
 
-footer {
+.tab_container footer {
   position: absolute;
   width: 20%;
   bottom: 0;
