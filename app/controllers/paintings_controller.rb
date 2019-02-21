@@ -39,15 +39,6 @@ class PaintingsController < ApplicationController
         image_url: helpers.asset_url('map_pin.png')
       }
     end
-    # @paintings = Painting.where.not(latitude: nil, longitude: nil)
-    # @markers = @paintings.map do |painting|
-      # {
-      #   lng: painting.longitude,
-      #   lat: painting.latitude,
-      #   infoWindow: render_to_string(partial: "infowindow", locals: { painting: painting }),
-      #   image_url: helpers.asset_url('map_pin.png')
-      # }
-    # end
   end
 
   def show

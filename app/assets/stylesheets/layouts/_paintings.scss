@@ -8,20 +8,21 @@
 }
 
 .container-cards {
-  margin-left: 40px;
+  margin-left: 100px;
 }
 
 .container-map {
-  flex: 0 0 600px;
+  flex: 0 0 700px;
   height: 100vh;
   position: sticky !important;
   top: 80px !important;
-  margin-right: 10px;
+  margin-top: 30px;
+  margin-right: 50px;
   border: 2px solid rgba(150, 150, 150, 0.3);
 }
 
 #container-search {
-  border-bottom: 1px solid rgba(150, 150, 150, 0.3);
+  border-bottom: 2px solid rgba(150, 150, 150, 0.3);
   padding-left: 20px;
   padding-bottom: 20px;
   position: sticky !important;
