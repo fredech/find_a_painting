@@ -95,6 +95,9 @@
 }
 .snip1423 figcaption {
   padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .snip1423 h3,
 .snip1423 p {
