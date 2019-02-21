@@ -1,0 +1,110 @@
+<div class="tab_container">
+<!--   <div id="logo"><h1 class="logo"></h1>
+    <div class="CTA">
+      <h1>Get $10</h1>
+      </div>
+  </div> -->
+  <div class="leftbox">
+    <nav>
+      <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Profile</p></i></a>
+      <a id="payment"><i class="fa fa-credit-card"><p class="text2">Payment</p></i></a>
+      <a id="subscription"><i class="fas fa-palette"></i><p class="text2">Paintings</p></i></a>
+      <a id="privacy"><i class="fas fa-file-alt"></i><p class="text2">Bookings</p></i></a>
+      <a id="settings"><i class="fa fa-cog"><p class="text2">Settings</p></i></a>
+    </nav>
+  </div>
+  <div class="rightbox">
+    <div class="profile">
+      <h1>Personal Info</h1>
+      <%= link_to 'Edit', edit_user_registration_path(current_user), class: "button" %>
+      <h2>Full Name</h2>
+      <p><%= "#{current_user.first_name} #{current_user.last_name}" %><button class="btn">update</button></p>
+      <h2>Address</h2>
+      <p><%= "#{current_user.address}" %></p>
+      <h2>Email</h2>
+      <p><%= "#{current_user.email} " %><button class="btn">update</button></p>
+      <h2>Password </h2>
+      <p>••••••• <button class="btn">Change</button></p>
+    </div>
+
+    <div class="payment noshow">
+      <h1>Payment Info</h1>
+      <h2>Payment Method</h2>
+      <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
+      <h2>Billing Address</h2>
+      <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
+      <h2>Zipcode</h2>
+      <p>999000</p>
+      <h2>Billing History</h2>
+      <p>2018<button class="btn">view</button></p>
+      <h2>Redeem Gift Subscription </h2>
+      <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p>
+    </div>
+
+    <div class="subscription noshow">
+      <div class="sub-tab">
+        <h1><%= "#{@paintings.count} Paintings" %></h1>
+        <%= link_to 'Add a painting', new_painting_path, class: "button" %>
+        <ul>
+          <ul class="list-inline bookings">
+            <li style= "width: 15%;"><h2><%= "Title" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Author" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Address" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Style" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Price per day" %></h2></li>
+            <li style= "width: 25%;"><h2><%= "Image" %></h2></li>
+          </ul><hr style="margin-top: 0; margin-bottom: 0">
+          <div class="sub-tab-content">
+            <% @paintings.each do |painting| %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= painting.name %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.author %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.location %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.style %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.price %></h2></li>
+                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%= painting.photo %>"><%= link_to 'Edit', "", class: "button" %></h2></li>
+              </ul>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="privacy noshow">
+      <div class="sub-tab">
+        <h1><%= "#{@bookings.count} Bookings" %></h1>
+        <ul>
+          <ul class="list-inline bookings">
+            <li style= "width: 15%;"><h2><%= "BOOKING N°" %></h2></li>
+            <li style= "width: 20%;"><h2><%= "Title" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Author" %></h2></li>
+            <li style= "width: 50%;"><h2><%= "Rent Period" %></h2></li>
+          </ul><hr style="margin-top: 0; margin-bottom: 0">
+          <div class="sub-tab-content">
+            <% @bookings.each do |booking| %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= "00#{booking.id}" %></h2></li>
+                <li style= "width: 20%;"><h2><%= booking.painting.name %></h2></li>
+                <li style= "width: 15%;"><h2><%= booking.painting.author %></h2></li>
+                <li style= "width: 50%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><%= link_to 'Edit', "", class: "button" %></h2></li>
+              </ul>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    </div>
+ <div class="settings noshow">
+      <h1>Account Settings</h1>
+      <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
+      <p></p>
+      <h2>Hold Your Subscription<button class="btn">hold</button></h2>
+      <p></p>
+      <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
+      <p></p>
+      <h2>Your Devices <button class="btn">Manage Devices</button></h2>
+      <p></p>
+      <h2>Referrals <button class="btn">get $10</button></h2>
+   <p></p>
+    </div>
+  </div>
+</div>

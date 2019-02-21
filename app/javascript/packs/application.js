@@ -12,7 +12,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
-
+import { tabEffect } from '../components/tab';
 
 initUpdateNavbarOnScroll();
 initSelect2();
@@ -20,6 +20,7 @@ previewImageOnFileSelect();
 inithover();
 initMapbox();
 initAutocomplete();
+tabEffect();
 
 const card = document.querySelector(".snip1423");
 if ( card ) {

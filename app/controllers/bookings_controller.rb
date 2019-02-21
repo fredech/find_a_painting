@@ -5,6 +5,8 @@ class BookingsController < ApplicationController
   skip_after_action :verify_authorized, only:[:create]
 
   def edit
+    @booking = Booking.where(params[:id])
+    authorize @booking
   end
 
   def create

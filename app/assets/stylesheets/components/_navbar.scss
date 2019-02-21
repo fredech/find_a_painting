@@ -15,10 +15,22 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0.9;
 }
-
+.navbar-wagon-brand img {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 65px;
+}
+.navbar-wagon-brand-title {
+  color: #616668;
+  font-size: 30px;
+}
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
