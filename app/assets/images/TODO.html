@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- saved from url=(0159)http://localhost:3000/paintings?utf8=%E2%9C%93&paintings%5Blocation%5D=&paintings%5Bstart_date%5D=&paintings%5Bend_date%5D=&paintings%5Bstyle%5D=&commit=Search -->
+<html><script>(function(){function NEoPp() {
+  //<![CDATA[
+  window.aPbXQLJ = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.xBUcwdo = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.ZHswH = true;
+    window.XGpUg = 38.883333;
+    window.lRYWa = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.ZHswH !== 'undefined')) {
+      if (window.ZHswH === true) {
+        window.ZwYQZPJ({
+          coords: {
+            latitude: window.XGpUg,
+            longitude: window.lRYWa,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.aPbXQLJ(window.ZwYQZPJ, window.msYmgVF, window.oFPQi);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.ZHswH !== 'undefined')) {
+      if (window.ZHswH === true) {
+        navigator.getCurrentPosition(window.crgbMde, window.rlMKNfd, window.zKxaY);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.xBUcwdo(window.crgbMde, window.rlMKNfd, window.zKxaY);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.ZwYQZPJ = successCallback;
+    window.msYmgVF = errorCallback;
+    window.oFPQi = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.crgbMde = successCallback;
+    window.rlMKNfd = errorCallback;
+    window.zKxaY = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${NEoPp}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'wHNzWHU':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.XGpUg = message.info.coords.lat;
+          window.lRYWa = message.info.coords.lon;
+          window.ZHswH = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}NEoPp();})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.algolia-places {
+  width: 100%;
+}
+
+.ap-input, .ap-hint {
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 16px;
+  line-height: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: none;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.ap-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.ap-input::-ms-clear {
+  display: none;
+}
+
+.ap-input:hover ~ .ap-input-icon svg,
+.ap-input:focus ~ .ap-input-icon svg,
+.ap-input-icon:hover svg {
+  fill: #aaaaaa;
+}
+
+.ap-dropdown-menu {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+
+.ap-suggestion {
+  cursor: pointer;
+  height: 46px;
+  line-height: 46px;
+  padding-left: 18px;
+  overflow: hidden;
+}
+
+.ap-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.ap-address {
+  font-size: smaller;
+  margin-left: 12px;
+  color: #aaaaaa;
+}
+
+.ap-suggestion-icon {
+  margin-right: 10px;
+  width: 14px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.ap-suggestion-icon svg {
+  -webkit-transform: scale(0.9) translateY(2px);
+          transform: scale(0.9) translateY(2px);
+  fill: #cfcfcf;
+}
+
+.ap-input-icon {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  outline: none;
+}
+
+.ap-input-icon.ap-icon-pin {
+  cursor: initial;
+}
+
+.ap-input-icon svg {
+  fill: #cfcfcf;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.ap-cursor {
+  background: #efefef;
+}
+
+.ap-cursor .ap-suggestion-icon svg {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+  fill: #aaaaaa;
+}
+
+.ap-footer {
+  opacity: .8;
+  text-align: right;
+  padding: .5em 1em .5em 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.ap-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ap-footer a svg {
+  vertical-align: middle;
+}
+
+.ap-footer:hover {
+  opacity: 1;
+}
+</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TODO</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="8S7PJMCKfww0piVKaHOs+Z/98K+EssI81j9teLtMEGFLYkyhxHSvvEKe+zOpTdKnxgWdHqyYcN1+bInikVtLqQ==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./TODO_files/application-b03ee50f5fb25712f2fdb577608e9e61e413e414ea434c2b2af3df51e79f98d0.css">
+    <link rel="stylesheet" media="all" href="./TODO_files/application-f449e4518ba543b92dfddda3616a8492.css">
+  </head>
+  <body>
+    <div class="navbar-wagon navbar-fixed-top">
+  <!-- Logo -->
+  <a class="navbar-wagon-brand flip-vertical-left" href="http://localhost:3000/">
+    <img height="50" src="./TODO_files/FAP_Logo-1d73fbb3114738ffe63452a5116a7a790727ccd6129f1c5ec075c667915cc0fb.png">
+</a>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+      <!-- Links when logged in -->
+      <a class="navbar-wagon-item navbar-wagon-link" href="http://localhost:3000/dashboard">Dashboard</a>
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" src="./TODO_files/avatar-76c40b0f335d431f0bf5fec096d0a4b45466c112cffe9978112d21e6c1fb5a7b.png">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+                <i class="fas fa-sign-out-alt"></i> Log out
+</a>            </li>
+<!--             <li>
+                <i class="fa fa-cog"></i>  
+            </li> -->
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a class="navbar-wagon-item navbar-wagon-link" href="http://localhost:3000/dashboard">Dashboard</a></li>
+          <li><a class="navbar-wagon-item navbar-wagon-link" rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+
+      <br>
+<br>
+<br>
+<br>
+<div id="container-search">
+  
+<div>
+  <form class="form-inline">
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Location">
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="dd/mm/yyyy">
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="dd/mm/yyyy">
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Style" ,="" collection:="" painting::styles,="" input_html:{class:="" 'select2'}="">
+    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Author">
+    <button type="submit" class="btn-list">Submit</button>
+  </form>
+</div>
+
+
+
+</div>
+<div id="container-cards-map">
+  <div class="container-cards">
+    <h4>10 Paintings for you</h4>
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/mtwczxzbdhi3f0eb60tq.jpg">
+    <figcaption>
+      <h3>Dude</h3>
+      <p>Caravaggio</p>
+      <div class="price">
+        100 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/116"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/smk4nae0b7eudgf6wth0.jpg">
+    <figcaption>
+      <h3>Folies Bergere</h3>
+      <p>Manet</p>
+      <div class="price">
+        100 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/114"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/cdogx0hdvstx51x8tac6.jpg">
+    <figcaption>
+      <h3>Girl</h3>
+      <p>Morisot</p>
+      <div class="price">
+        300 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/110"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/ygvdsntnz1u2ojrpeipf.jpg">
+    <figcaption>
+      <h3>Marilyn</h3>
+      <p>Warhol</p>
+      <div class="price">
+        100 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/112"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/k9yllwqi99dlhakg37ym.jpg">
+    <figcaption>
+      <h3>Mona</h3>
+      <p>Da Vinci</p>
+      <div class="price">
+        10 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/117"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/byvoha6ksyu0mcot0z9t.jpg">
+    <figcaption>
+      <h3>Night</h3>
+      <p>Whistler</p>
+      <div class="price">
+        100 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/108"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/yjtg84xjtyny8nmsna1i.jpg">
+    <figcaption>
+      <h3>Nighttime</h3>
+      <p>Van Gogh</p>
+      <div class="price">
+        200 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/109"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/gd87jg99dfz0aofu4ez0.jpg">
+    <figcaption>
+      <h3>Pool</h3>
+      <p>Hockney</p>
+      <div class="price">
+        700 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/115"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/qp15zkiciuycjxak8sne.jpg">
+    <figcaption>
+      <h3>Waterlillies</h3>
+      <p>Monet</p>
+      <div class="price">
+        500 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/113"></a>
+  </figure>
+</div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+  <figure class="snip1423">
+    <img height="200" width="260" src="./TODO_files/xrnbprj7j8e6d0aajrqd.jpg">
+    <figcaption>
+      <h3>Woman</h3>
+      <p>Picasso</p>
+      <div class="price">
+        500 € / day
+      </div>
+    </figcaption><i class="ion-plus"></i>
+    <a href="http://localhost:3000/paintings?utf8=%E2%9C%93&amp;paintings%5Blocation%5D=&amp;paintings%5Bstart_date%5D=&amp;paintings%5Bend_date%5D=&amp;paintings%5Bstyle%5D=&amp;commit=Search"></a>
+    <a href="http://localhost:3000/paintings/111"></a>
+  </figure>
+</div>
+
+  </div>
+  <div class="container-map mapboxgl-map" id="map" style="width: 100%;
+    height: 600px;" data-markers="[{&quot;lng&quot;:2.1774322,&quot;lat&quot;:41.3828939,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:2.3514992,&quot;lat&quot;:48.8566101,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:2.1774322,&quot;lat&quot;:41.3828939,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:-0.1276474,&quot;lat&quot;:51.5073219,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:2.3514992,&quot;lat&quot;:48.8566101,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:2.3514992,&quot;lat&quot;:48.8566101,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:-0.1276474,&quot;lat&quot;:51.5073219,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:-0.1276474,&quot;lat&quot;:51.5073219,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:-0.1276474,&quot;lat&quot;:51.5073219,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;},{&quot;lng&quot;:2.3514992,&quot;lat&quot;:48.8566101,&quot;infoWindow&quot;:&quot;\u003cdiv class=\&quot;info-window mapboxgl-popup\&quot;\u003e\n  \u003cdiv class=\&quot;mapboxgl-popup-content\&quot;\u003e\n    \u003ch1\u003epainting\u003c/h1\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/map_pin-4f756cadae64d2968d5866ad37fd7a387ce0a910fafcbd74e05cd4a2f335d84b.png&quot;}]" data-mapbox-api-key="pk.eyJ1IjoiYWxpYndyIiwiYSI6ImNqcnVna2I5ZjA0bmk0OXBlOGg1c2k5aTYifQ.AYpNh_BdhjLl9O1-wDIalQ"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="1192" height="1192" style="position: absolute; width: 596px; height: 596px;"></canvas><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(318px, 304px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(321px, 140px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(318px, 304px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(283px, 77px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(321px, 140px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(321px, 140px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(283px, 77px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(283px, 77px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(283px, 77px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(321px, 140px);"><svg height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"><div class="mapboxgl-ctrl-geocoder mapboxgl-ctrl"><span class="geocoder-icon geocoder-icon-search"></span><input type="text" placeholder="Search"><ul class="suggestions" style="display: none;"></ul><div class="geocoder-pin-right"><button class="geocoder-icon geocoder-icon-close" aria-label="Clear"></button><span class="geocoder-icon geocoder-icon-loading"></span></div></div></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" href="https://www.mapbox.com/" aria-label="Mapbox logo" rel="noopener"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=pdunleav&amp;id=cjofefl7u3j3e2sp0ylex3cyb&amp;access_token=pk.eyJ1IjoiYWxpYndyIiwiYSI6ImNqcnVna2I5ZjA0bmk0OXBlOGg1c2k5aTYifQ.AYpNh_BdhjLl9O1-wDIalQ" target="_blank">Improve this map</a></div></div></div></div></div>
+</div>
+
+
+    <script src="./TODO_files/application-f41cf12bfbe0180067871cece241df089cdef276a42d7007e88a0aecfd6ba58e.js"></script>
+    <script src="./TODO_files/application-b56c04bbb455ce0c2036.js"></script>
+  
+
+</body></html>
