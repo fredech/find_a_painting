@@ -1,9 +1,9 @@
 <div class="tab_container">
-  <div id="logo"><h1 class="logo"></h1>
+<!--   <div id="logo"><h1 class="logo"></h1>
     <div class="CTA">
       <h1>Get $10</h1>
       </div>
-  </div>
+  </div> -->
   <div class="leftbox">
     <nav>
       <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Profile</p></i></a>
@@ -15,7 +15,7 @@
   </div>
   <div class="rightbox">
     <div class="profile">
-      <h1>Personal Info</h1>
+      <h1>Personal Info<button class="snip1564 fixed-top"><%= link_to 'Modify', edit_user_registration_path(current_user) %></button></h1>
       <h2>Full Name</h2>
       <p><%= "#{current_user.first_name} #{current_user.last_name}" %><button class="btn">update</button></p>
       <h2>Address</h2>
@@ -41,49 +41,55 @@
     </div>
 
     <div class="subscription noshow">
-      <h1>Your Paintings</h1>
-      <h2>Payment Date</h2>
-      <p>05-15-2018 <button class="btn">pay now</button></p>
-      <h2>Your Next Charge</h2>
-      <p>$8.48<span> includes tax</span></p>
-      <h2>Hulu Base Plan</h2>
-      <p>Limited Commercials <button class="btn">change plan</button></p>
-      <h2>Add-ons</h2>
-      <p>None <button class="btn">manage</button></p>
-      <h2>Monthly Recurring Total </h2>
-      <p>$7.99/month</p>
+      <div class="sub-tab">
+        <h1><%= "#{@paintings.count} Paintings" %><button class="snip1564 hover fixed-top"><%= link_to 'Add', new_painting_path %></button></h1>
+        <ul>
+          <ul class="list-inline bookings">
+            <li style= "width: 15%;"><h2><%= "Title" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Author" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Address" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Style" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Price per day" %></h2></li>
+            <li style= "width: 25%;"><h2><%= "Image" %></h2></li>
+          </ul><hr style="margin-top: 0; margin-bottom: 0">
+          <div class="sub-tab-content">
+            <% @paintings.each do |painting| %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= painting.name %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.author %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.location %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.style %></h2></li>
+                <li style= "width: 15%;"><h2><%= painting.price %></h2></li>
+                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%= painting.photo %>"><%= link_to 'Edit', "", class: "button" %></h2></li>
+              </ul>
+            <% end %>
+          </div>
+        </ul>
+      </div>
     </div>
 
     <div class="privacy noshow">
-      <h1>Bookings</h1>
-      <ul>
-        <ul class="list-inline bookings">
-          <li style= "width: 15%;"><h2><%= "BOOKING N°" %></h2></li>
-          <li style= "width: 20%;"><h2><%= "Title :" %></h2></li>
-          <li style= "width: 15%;"><h2><%= "Author :" %></h2></li>
-          <li style= "width: 50%;"><h2><%= "Rent Period" %></h2></li>
-        </ul><hr>
-      <% @bookings.each do |booking| %>
-        <ul class="list-inline bookings">
-          <li style= "width: 15%;"><h2><%= "00#{booking.id}" %></h2></li>
-          <li style= "width: 20%;"><h2><%= booking.painting.name %></h2></li>
-          <li style= "width: 15%;"><h2><%= booking.painting.author %></h2></li>
-          <li style= "width: 50%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><button class="btn">manage</button></h2></li>
+      <div class="sub-tab">
+        <h1><%= "#{@bookings.count} Bookings" %></h1>
+        <ul>
+          <ul class="list-inline bookings">
+            <li style= "width: 15%;"><h2><%= "BOOKING N°" %></h2></li>
+            <li style= "width: 20%;"><h2><%= "Title" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Author" %></h2></li>
+            <li style= "width: 50%;"><h2><%= "Rent Period" %></h2></li>
+          </ul><hr style="margin-top: 0; margin-bottom: 0">
+          <div class="sub-tab-content">
+            <% @bookings.each do |booking| %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= "00#{booking.id}" %></h2></li>
+                <li style= "width: 20%;"><h2><%= booking.painting.name %></h2></li>
+                <li style= "width: 15%;"><h2><%= booking.painting.author %></h2></li>
+                <li style= "width: 50%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><%= link_to 'Edit', "", class: "button" %></h2></li>
+              </ul>
+            <% end %>
+          </div>
         </ul>
-      <% end %>
-      </ul>
-
-
-<!--       <h2>Manage Email Notifications<button class="btn">manage</button></h2>
-      <p></p>
-      <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
-      <p></p>
-      <h2>View Terms of Use <button class="btn">view</button></h2>
-      <p></p>
-      <h2>Personalize Ad Experience <button class="btn">update</button></h2>
-      <p></p>
-      <h2>Protect Your Account <button class="btn">protect</button></h2>
-      <p></p> -->
+      </div>
     </div>
  <div class="settings noshow">
       <h1>Account Settings</h1>
@@ -101,7 +107,3 @@
 
   </div>
 </div>
-
-<footer>
-  <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
-</footer>
