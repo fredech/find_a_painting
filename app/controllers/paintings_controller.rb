@@ -56,28 +56,29 @@ class PaintingsController < ApplicationController
   end
 
   def search
-
-    if params[:search][:location].empty? && params[:search][:style].empty?
-      redirect_to paintings_path
-    elsif params[:search][:location].empty? && params[:search][:style].empty? == false
-       param_1=  "%#{params[:search][:style]}%"
-       sql_query = "paintings.style @@ ?"
-       query = sql_query, param_1
-       @paintings = Painting.where(query)
-    elsif params[:search][:style].empty? && params[:search][:location].empty? == false
-       param_1=  "%#{params[:search][:location]}%"
-       sql_query = "paintings.location @@ ?"
-       query = sql_query, param_1
-       @paintings = Painting.where(query)
-    else
-      sql_query = " \
-        paintings.location @@ ? \
-        AND paintings.style @@ ? \
-      "
-      param_1 = "%#{params[:search][:location]}%"
-      param_2 = "%#{params[:search][:style]}%"
-      query = sql_query, param_1, param_2
-      @paintings = Painting.where(query)
+    if params[:search][:author].nil?
+      if params[:search][:location].empty? && params[:search][:style].empty?
+        redirect_to paintings_path
+      elsif params[:search][:location].empty? && params[:search][:style].empty? == false
+         param_1=  "%#{params[:search][:style]}%"
+         sql_query = "paintings.style @@ ?"
+         query = sql_query, param_1
+         @paintings = Painting.where(query)
+      elsif params[:search][:style].empty? && params[:search][:location].empty? == false
+         param_1=  "%#{params[:search][:location]}%"
+         sql_query = "paintings.location @@ ?"
+         query = sql_query, param_1
+         @paintings = Painting.where(query)
+      else
+        sql_query = " \
+          paintings.location @@ ? \
+          AND paintings.style @@ ? \
+        "
+        param_1 = "%#{params[:search][:location]}%"
+        param_2 = "%#{params[:search][:style]}%"
+        query = sql_query, param_1, param_2
+        @paintings = Painting.where(query)
+      end
     end
 
     # @markers = @paintings.map do |painting|
