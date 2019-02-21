@@ -15,7 +15,8 @@
   </div>
   <div class="rightbox">
     <div class="profile">
-      <h1>Personal Info<button class="snip1564 fixed-top"><%= link_to 'Modify', edit_user_registration_path(current_user) %></button></h1>
+      <h1>Personal Info</h1>
+      <%= link_to 'Edit', edit_user_registration_path(current_user), class: "button" %>
       <h2>Full Name</h2>
       <p><%= "#{current_user.first_name} #{current_user.last_name}" %><button class="btn">update</button></p>
       <h2>Address</h2>
@@ -42,7 +43,8 @@
 
     <div class="subscription noshow">
       <div class="sub-tab">
-        <h1><%= "#{@paintings.count} Paintings" %><button class="snip1564 hover fixed-top"><%= link_to 'Add', new_painting_path %></button></h1>
+        <h1><%= "#{@paintings.count} Paintings" %></h1>
+        <%= link_to 'Add a painting', new_painting_path, class: "button" %>
         <ul>
           <ul class="list-inline bookings">
             <li style= "width: 15%;"><h2><%= "Title" %></h2></li>
@@ -104,6 +106,5 @@
       <h2>Referrals <button class="btn">get $10</button></h2>
    <p></p>
     </div>
-
   </div>
 </div>
