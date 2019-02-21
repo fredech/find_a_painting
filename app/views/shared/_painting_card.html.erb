@@ -7,8 +7,9 @@
       <div class="price">
         <%= painting.price %> € / day
       </div>
-    </figcaption><i class="ion-plus"></i>
+    </figcaption><i>Details</i>
     <a href=""></a>
-    <%= link_to '', painting_path(painting.id) %>
+    <raise>
+    <%= link_to '', painting_path(painting.id, start_date: params[:search][:start_date], end_date: params[:search][:end_date]) %>
   </figure>
 </div>

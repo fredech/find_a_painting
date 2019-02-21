@@ -18,6 +18,12 @@ class PaintingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    start = DateTime.parse(@start_date)
+    endate = DateTime.parse(@end_date)
+    @total_paid = ((endate - start) * @painting.price).to_i
   end
 
   def new
