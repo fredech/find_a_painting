@@ -13,6 +13,7 @@ class Painting < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
+
   STYLES = %w(Abstract Abstraction Expressionism Impressionism Modernism Painterly Photorealism Realism)
   validates :name, presence: true
   validates :location, presence: true
