@@ -74,6 +74,42 @@
   font-size: 40px;
 }
 
+#container-cards-map {
+  display: flex;
+  top: 0;
+}
+
+.container-cards h4 {
+  text-align: center;
+}
+
+.container-map {
+  flex: 0 0 600px;
+  height: 100vh;
+  position: sticky !important;
+  top: 80px !important;
+  margin-right: 10px;
+  margin-top: 77px;
+  border: 2px solid rgba(150, 150, 150, 0.3);
+}
+
+#container-search {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.3);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  position: sticky !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inline {
+  text-align: center;
+}
+
+
+
+
 // @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,700');
 // @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 // .snip1583 {

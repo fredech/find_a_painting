@@ -6,7 +6,31 @@ class PaintingsController < ApplicationController
 
   def index
     @painting = policy_scope(Painting)
-    @paintings = Painting.where.not(latitude: nil, longitude: nil)
+    if params[:paintings][:author].nil?
+      if params[:paintings][:location].empty? && params[:paintings][:style].empty?
+        @paintings = Painting.all
+      elsif params[:paintings][:location].empty? && params[:paintings][:style].empty? == false
+         param_1=  "%#{params[:paintings][:style]}%"
+         sql_query = "paintings.style @@ ?"
+         query = sql_query, param_1
+         @paintings = Painting.where(query)
+      elsif params[:paintings][:style].empty? && params[:paintings][:location].empty? == false
+         param_1=  "%#{params[:paintings][:location]}%"
+         sql_query = "paintings.location @@ ?"
+         query = sql_query, param_1
+         @paintings = Painting.where(query)
+      else
+        sql_query = " \
+          paintings.location @@ ? \
+          AND paintings.style @@ ? \
+        "
+        param_1 = "%#{params[:paintings][:location]}%"
+        param_2 = "%#{params[:paintings][:style]}%"
+        query = sql_query, param_1, param_2
+        @paintings = Painting.where(query)
+      end
+    end
+
     @markers = @paintings.map do |painting|
       {
         lng: painting.longitude,
@@ -15,6 +39,15 @@ class PaintingsController < ApplicationController
         image_url: helpers.asset_url('map_pin.png')
       }
     end
+    # @paintings = Painting.where.not(latitude: nil, longitude: nil)
+    # @markers = @paintings.map do |painting|
+      # {
+      #   lng: painting.longitude,
+      #   lat: painting.latitude,
+      #   infoWindow: render_to_string(partial: "infowindow", locals: { painting: painting }),
+      #   image_url: helpers.asset_url('map_pin.png')
+      # }
+    # end
   end
 
   def show
@@ -55,38 +88,7 @@ class PaintingsController < ApplicationController
   end
 
   def search
-    if params[:search][:author].nil?
-      if params[:search][:location].empty? && params[:search][:style].empty?
-        redirect_to paintings_path
-      elsif params[:search][:location].empty? && params[:search][:style].empty? == false
-         param_1=  "%#{params[:search][:style]}%"
-         sql_query = "paintings.style @@ ?"
-         query = sql_query, param_1
-         @paintings = Painting.where(query)
-      elsif params[:search][:style].empty? && params[:search][:location].empty? == false
-         param_1=  "%#{params[:search][:location]}%"
-         sql_query = "paintings.location @@ ?"
-         query = sql_query, param_1
-         @paintings = Painting.where(query)
-      else
-        sql_query = " \
-          paintings.location @@ ? \
-          AND paintings.style @@ ? \
-        "
-        param_1 = "%#{params[:search][:location]}%"
-        param_2 = "%#{params[:search][:style]}%"
-        query = sql_query, param_1, param_2
-        @paintings = Painting.where(query)
-      end
-    end
 
-    # @markers = @paintings.map do |painting|
-    #   {
-    #     lng: painting.longitude,
-    #     lat: painting.latitude,
-    #     infoWindow: render_to_string(partial: "infowindow", locals: { painting: painting }),
-    #     image_url: helpers.asset_url('map_pin.png')
-    #   }
   end
 
   private

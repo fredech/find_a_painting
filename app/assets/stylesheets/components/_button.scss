@@ -16,6 +16,22 @@
   color: white;
 }
 
+.btn-list {
+  color: white;
+  border-radius: 10px;
+  opacity: 0.8;
+  width: 100px;
+  height: 40px;
+  background-color: #FF5A5F;
+  font-weight: bold;
+}
+
+.btn-list:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 .snip1564 {
   background-color: #ffffff;
