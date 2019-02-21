@@ -6,11 +6,11 @@
   </div>
   <div class="leftbox">
     <nav>
-      <a id="profile" class="active"><i class="fa fa-user"></i></a>
-      <a id="payment"><i class="fa fa-credit-card"></i></a>
-      <a id="subscription"><i class="fa fa-tv"></i></a>
-      <a id="privacy"><i class="fa fa-tasks"></i></a>
-      <a id="settings"><i class="fa fa-cog"></i></a>
+      <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Profile</p></i></a>
+      <a id="payment"><i class="fa fa-credit-card"><p class="text2">Payment</p></i></a>
+      <a id="subscription"><i class="fas fa-palette"></i><p class="text2">Paintings</p></i></a>
+      <a id="privacy"><i class="fas fa-file-alt"></i><p class="text2">Bookings</p></i></a>
+      <a id="settings"><i class="fa fa-cog"><p class="text2">Settings</p></i></a>
     </nav>
   </div>
   <div class="rightbox">
@@ -21,7 +21,7 @@
       <h2>Address</h2>
       <p><%= "#{current_user.address}" %></p>
       <h2>Email</h2>
-      <p>example@example.com <button class="btn">update</button></p>
+      <p><%= "#{current_user.email} " %><button class="btn">update</button></p>
       <h2>Password </h2>
       <p>••••••• <button class="btn">Change</button></p>
     </div>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="subscription noshow">
-      <h1>Your Subscription</h1>
+      <h1>Your Paintings</h1>
       <h2>Payment Date</h2>
       <p>05-15-2018 <button class="btn">pay now</button></p>
       <h2>Your Next Charge</h2>
@@ -55,8 +55,26 @@
     </div>
 
     <div class="privacy noshow">
-      <h1>Privacy Settings</h1>
-      <h2>Manage Email Notifications<button class="btn">manage</button></h2>
+      <h1>Bookings</h1>
+      <ul>
+        <ul class="list-inline bookings">
+          <li style= "width: 15%;"><h2><%= "BOOKING N°" %></h2></li>
+          <li style= "width: 20%;"><h2><%= "Title :" %></h2></li>
+          <li style= "width: 15%;"><h2><%= "Author :" %></h2></li>
+          <li style= "width: 50%;"><h2><%= "Rent Period" %></h2></li>
+        </ul><hr>
+      <% @bookings.each do |booking| %>
+        <ul class="list-inline bookings">
+          <li style= "width: 15%;"><h2><%= "00#{booking.id}" %></h2></li>
+          <li style= "width: 20%;"><h2><%= booking.painting.name %></h2></li>
+          <li style= "width: 15%;"><h2><%= booking.painting.author %></h2></li>
+          <li style= "width: 50%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><button class="btn">manage</button></h2></li>
+        </ul>
+      <% end %>
+      </ul>
+
+
+<!--       <h2>Manage Email Notifications<button class="btn">manage</button></h2>
       <p></p>
       <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
       <p></p>
@@ -65,7 +83,7 @@
       <h2>Personalize Ad Experience <button class="btn">update</button></h2>
       <p></p>
       <h2>Protect Your Account <button class="btn">protect</button></h2>
-      <p></p>
+      <p></p> -->
     </div>
  <div class="settings noshow">
       <h1>Account Settings</h1>

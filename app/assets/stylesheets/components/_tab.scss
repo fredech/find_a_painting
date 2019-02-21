@@ -18,7 +18,7 @@ body {
 .tab_container {
   background: $white;
   width: 90%;
-  height: 60vh;
+  height: 100vh;
   margin: 0 auto;
   position: relative;
   margin-top: 5%;
@@ -45,7 +45,7 @@ body {
   position: absolute;
   z-index: 1;
   background: $green;
-  font-size: 1em;
+  font-size: 1.5em;
   transform: rotate(-90deg);
   transition: all .5s ease-in-out;
   cursor: pointer;
@@ -59,6 +59,7 @@ body {
     transform: scale(1.1);
   }
 }
+
 
 .leftbox {
   float: left;
@@ -75,8 +76,9 @@ nav a {
   list-style: none;
   padding: 35px;
   color: $white;
-  font-size: 1.1em;
+  font-size: 1.3em;
   display: block;
+  block-size: 0.8em;
   transition: all .3s ease-in-out;
   &:hover {
     color: $aqua;
@@ -86,6 +88,17 @@ nav a {
   &:first-child {
     margin-top: 7px;
   }
+}
+nav a .text2 {
+  position:relative;
+  bottom:30px;
+  left:50px;
+  font-size: 0.4em;
+  font-weight: bold;
+  visibility:hidden;
+}
+nav a:hover .text2 {
+  visibility:visible;
 }
 
 .active {
@@ -109,7 +122,7 @@ nav a {
 h1 {
   font-family: $heading;
   color: $green;
-  font-size: 1em;
+  font-size: 1.2em;
   margin-top: 40px;
   margin-bottom: 35px;
 }
@@ -119,7 +132,7 @@ h2 {
   font-family: $body;
   width: 80%;
   text-transform: uppercase;
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 1px;
   margin-left: 2px;
 }
@@ -131,12 +144,12 @@ p {
   border-top: 0;
   width: 80%;
   font-family: $heading;
-  font-size: .7em;
+  font-size: .9em;
   padding: 7px 0;
   color: $black;
 }
 span {
-  font-size: .5em;
+  font-size: .7em;
   color: $gray;
 }
 
@@ -144,7 +157,7 @@ span {
   float: right;
   font-family: $body;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 12px;
   border: none;
   color: $aqua;
 }
@@ -164,6 +177,11 @@ input {
 .privacy h2{
   margin-top: 25px;
 }
+.bookings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .settings h2{
   margin-top: 25px;
@@ -179,7 +197,7 @@ footer {
   bottom: 0;
   right: -20px;
   text-align: right;
-  font-size: 0.8em;
+  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-family: $body;
