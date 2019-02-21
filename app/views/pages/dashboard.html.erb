@@ -1,11 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('<%= image_path("dashboard3.jpg") %>');">
-  <h1>Dashboard</h1>
-</div>
-
 <!-- <button class="snip1564">Submit</button>
 <button class="snip1564 hover">Read More</button>
 <button class="snip1564">Add to Cart</button>
 <button class="snip1564">Subscribe</button> -->
+<br>
+<br>
+<%= render 'tab' %>
+<br>
+<br>
+<br>
+
 
 <div class="container text-center">
   <div class="grid">
@@ -46,11 +49,6 @@
         </p>
       </div>
   </div>
-  </div>
-  <div>
-    <% @bookings.each do |booking| %>
-      <%= render 'shared/booking_card', booking: booking %>
-    <% end %>
   </div>
   <div>
     <% @bookings.each do |booking| %>

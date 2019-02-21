@@ -41,6 +41,8 @@ class PaintingsController < ApplicationController
   end
 
   def edit
+    @painting = Painting.new
+    authorize @painting
   end
 
   def create
