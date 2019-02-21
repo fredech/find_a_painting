@@ -1,27 +1,45 @@
 <br>
 <br>
 <br>
-<div class="banner" style="background-image: url(<%= image_path('rax.jpg') %>);">
-  <h1>More information on your painting</h1>
-</div>
-<br>
-</br>
 <div id="painting-container">
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <figure class="snip1423_sh">
+      <%= cl_image_tag @painting.photo, height: 280, crop: :fit%>
+      <figcaption>
+        <h3>Title : <%= @painting.name  %></h3>
+        <p>Author : <%= @painting.author  %></p>
+        <p>Style : <%= @painting.style  %></p>
+        <div class="price">
+         Total Price : <%= @total_paid %> €
+        </div>
+      <%= simple_form_for [@painting, Booking.new]  do |f| %>
+        <%= f.input :start_date, label: 'Start Date', placeholder: @start_date%>
+        <%= f.input :end_date, label: 'End Date', placeholder: @end_date %>
+        <i><%= f.submit "Book!", class: 'avatar' %></i>
+      <% end %>
+      </figcaption><i>Book</i>
+      <a href=""></a>
+    </figure>
+  </div>
+
+
+ <!--  <br>
     <figure class="snip1583">
-      <%= cl_image_tag @painting.photo, height: 500, width: 600, crop: :fill %>
+      <%#= cl_image_tag @painting.photo, height: 500, width: 600, crop: :fill %>
       <div id="caption">
-        <h3><%= @painting.name %></h3>
-        <p><%= @painting.author %> | <%= @painting.style %> | <%= @painting.location %></p>
+        <h3><%#= @painting.name %></h3>
+        <p><%#= @painting.author %> | <%= @painting.style %> | <%= @painting.location %></p>
         <div class="price"><strong>Price per day: € </strong><%= @painting.price %></div>
       </div>
     </figure>
   <div id="booking-form">
-    <%= simple_form_for [@painting, Booking.new]  do |f| %>
-      <%= f.input :start_date, label: 'Start Date', placeholder: 'dd/mm/yyyy' %>
-      <%= f.input :end_date, label: 'End Date', placeholder: 'dd/mm/yyyy' %>
-      <%= f.submit "Book!", class: "btn-treehouse" %>
-    <% end %>
-  </div>
+    <%#= simple_form_for [@painting, Booking.new]  do |f| %>
+      <%#= f.input :start_date, label: 'Start Date', placeholder: 'dd/mm/yyyy' %>
+      <%#= f.input :end_date, label: 'End Date', placeholder: 'dd/mm/yyyy' %>
+      <%#= f.submit "Book!", class: "btn-treehouse" %>
+    <%# end %>
+  </div> -->
 </div>
+
 
 

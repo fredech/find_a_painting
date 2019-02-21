@@ -1,66 +1,10 @@
-.card {
-  height: 175px;
-  width: 300px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center !important;
-  color: white;
-  position: relative;
-  margin: 10px;
-}
-.card-user {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-description li {
-  font-size: 12px;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
-
-
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
-.snip1423 {
+.snip1423_sh {
   font-family: 'Oswald', Arial, sans-serif;
   position: relative;
   margin: 10px;
-  min-width: 230px;
-  max-width: 315px;
+  height: 80vh;
   width: 100%;
   background: #ffffff;
   text-align: center;
@@ -74,50 +18,47 @@
   transition: all 0.2s ease-out;
   margin-top: 30px
 }
-.snip1423 * {
+.snip1423_sh * {
   -webkit-box-sizing: padding-box;
   box-sizing: padding-box;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-.snip1423 img {
+.snip1423_sh img {
   max-width: 100%;
   vertical-align: top;
   position: relative;
 }
-.snip1423 figcaption {
+.snip1423_sh figcaption {
   padding: 20px 15px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
-.snip1423 h3,
-.snip1423 p {
+.snip1423_sh h3,
+.snip1423_sh p {
   margin: 0;
 }
-.snip1423 h3 {
+.snip1423_sh h3 {
   font-size: 1.3em;
   font-weight: 400;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
-.snip1423 p {
+.snip1423_sh p {
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 300;
 }
-.snip1423 .price {
+.snip1423_sh .price {
   font-weight: 500;
   font-size: 1.4em;
   line-height: 48px;
   letter-spacing: 1px;
 }
-.snip1423 .price s {
+.snip1423_sh .price s {
   margin-right: 5px;
   opacity: 0.5;
   font-size: 0.9em;
 }
-.snip1423 i {
+.snip1423_sh i {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,12 +74,12 @@
   border-radius: 50%;
   background-color: #FF5A5F;
   color: white;
-  font-size: 1em;
+  font-size: 1.2em;
   border: 4px solid #ffffff;
   font-weight: bold;
   opacity: 0.8;
 }
-.snip1423 a {
+.snip1423_sh a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -146,14 +87,13 @@
   right: 0;
   z-index: 1;
 }
-.snip1423:hover,
-.snip1423.hover {
+.snip1423_sh:hover,
+.snip1423_sh.hover {
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
 }
-.snip1423:hover i,
-.snip1423.hover i {
+.snip1423_sh:hover i,
+.snip1423_sh.hover i {
   background-color: #FF5A5F;
   opacity: 1;
 }
-
