@@ -80,7 +80,7 @@ painting_seven.remote_photo_url = url
 painting_seven.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586429/Paintings/hockney.jpg"
-painting_eight = Painting.new(name: 'Pool', location: "Clive Steps, King Charles St, London", price: "700", author: "Hockney", style: "Painterly", user: users.sample)
+painting_eight = Painting.new(name: 'Pool', location: "King Charles St, London", price: "700", author: "Hockney", style: "Painterly", user: users.sample)
 painting_eight.remote_photo_url = url
 painting_eight.save!
 
