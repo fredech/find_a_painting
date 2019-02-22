@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
+  def configure_permitted_parameters
+    update_attrs = [:first_name, :last_name, :address, :photo, :password, :password_confirmation, :current_password]
+    devise_parameter_sanitizer.permit :account_update, keys: update_attrs
+  end
+
   private
 
   def skip_pundit?

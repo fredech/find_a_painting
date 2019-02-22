@@ -8,6 +8,7 @@
   width: 100%;
   background: #ffffff;
   text-align: center;
+  line-height: 2;
   color: #000000;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   font-size: 16px;
@@ -40,7 +41,8 @@
   font-size: 1.3em;
   font-weight: 400;
   margin-bottom: 5px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  line-height: 3;
 }
 .snip1423_sh p {
   font-size: 0.9em;
