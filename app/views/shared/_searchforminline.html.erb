@@ -1,61 +1,43 @@
 
+
 <div>
-  <form class="form-inline">
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Location">
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="dd/mm/yyyy">
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="dd/mm/yyyy">
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Style", collection: Painting::STYLES, input_html:{class: 'select2'}>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Author">
-    <button type="submit" class="btn-list">Submit</button>
-  </form>
+  <h5>Not what you are looking for ?  Try again </h5>
 </div>
 
-
-<div class="form">
-  <form novalidate="novalidate" class="form-inline paintings" action="/paintings" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-    <div class="form-group string required paintings_location">
-      <label class="form-control-label string required" for="paintings_location">Where do you live ? <abbr title="required">*</abbr></label>
-      <input class="form-control string required" placeholder="Type your address" type="text" name="paintings[location]" id="paintings_location">
-    </div>
-    <div class="form-group string">
-      <label class="form-control-label string required" for="paintings_start_date">Booking starting date <abbr title="required">*</abbr></label>
-      <input class="form-control string required" placeholder="dd/mm/yyyy" type="text" name="paintings[start_date]" id="paintings_start_date">
+<div class="form-inline">
+  <form class="form-inline paintings" action="/paintings" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+    <div class="form-group paintings_location">
+      <input class="form-control" placeholder="Type your address" type="text" name="paintings[location]" id="paintings_location">
     </div>
     <div class="form-group">
-      <label class="form-control-label string required" for="paintings_end_date">Booking ending date <abbr title="required">*</abbr></label>
-      <input class="form-control string required" placeholder="dd/mm/yyyy" type="text" name="paintings[end_date]" id="paintings_end_date">
+      <input class="form-control" placeholder="dd/mm/yyyy" type="text" name="paintings[start_date]" id="paintings_start_date">
     </div>
     <div class="form-group">
-      <label class="form-control-label string required" for="paintings_style">What style of painting are you looking for ? <abbr title="required">*</abbr></label>
-      <input class="form-control string required" placeholder="Painterly" type="text" name="paintings[style]" id="paintings_style">
+      <input class="form-control" placeholder="dd/mm/yyyy" type="text" name="paintings[end_date]" id="paintings_end_date">
     </div>
     <div class="form-group">
-      <label class="form-control-label string required" for="paintings_author">Which author ? <abbr title="required">*</abbr></label>
-      <input class="form-control string required" placeholder="Picasso" type="text" name="paintings[author]" id="paintings_author">
-    </div>
-
-    <div class="form-group select required paintings_style"><label class="form-control-label select required" for="paintings_style">What style of painting are you looking for ? <abbr title="required">*</abbr></label>
-      <select class="form-control select required select2 select2-hidden-accessible" placeholder="Choose in the list" name="paintings[style]" id="paintings_style" data-select2-id="paintings_style" tabindex="-1" aria-hidden="true"><option value="" data-select2-id="2"></option>
-      <option value="Abstract">Abstract</option>
-      <option value="Abstraction">Abstraction</option>
-      <option value="Expressionism">Expressionism</option>
-      <option value="Impressionism">Impressionism</option>
-      <option value="Modernism">Modernism</option>
-      <option value="Painterly">Painterly</option>
-      <option value="Photorealism">Photorealism</option>
-      <option value="Realism">Realism</option>
+      <select class="form-control" placeholder="Choose in the list" name="paintings[style]" id="paintings_style"><option value=""></option>
+        <option value="Abstract">Abstract</option>
+        <option value="Abstraction">Abstraction</option>
+        <option value="Expressionism">Expressionism</option>
+        <option value="Impressionism">Impressionism</option>
+        <option value="Modernism">Modernism</option>
+        <option value="Painterly">Painterly</option>
+        <option value="Photorealism">Photorealism</option>
+        <option value="Realism">Realism</option>
       </select>
-      <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 340px;">
-        <span class="selection">
-          <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-paintings_style-container">
-            <span class="select2-selection__rendered" id="select2-paintings_style-container" role="textbox" aria-readonly="true" title=""></span>
-            <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
-          </span>
-        </span>
-        <span class="dropdown-wrapper" aria-hidden="true"></span>
-      </span>
-    </div>
 
-    <input type="submit" name="commit" value="Search" class="btn-medium" data-disable-with="Search">
+    </div>
+    <div class="form-group">
+      <input class="form-control" placeholder="Picasso"  type="text" name="paintings[author]" id="paintings_author">
+    </div>
+    <input type="submit" name="commit" value="Search" class="btn-list" data-disable-with="Search">
   </form>
 </div>
+
+
+
+
+      <!-- <input class="form-control select2" placeholder="Painterly" collection="Painting::STYLES" type="text" name="paintings[style]" id="paintings_style"> -->
+
+<!-- novalidate="novalidate"  -->
