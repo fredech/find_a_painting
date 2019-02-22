@@ -1,17 +1,19 @@
-<div class="message">
-  <img class="avatar-large" src="<%= booking.painting.photo %>">
-  <div class="message-name">
-    <h3><%= "Painting Title" %></h3>
-    <p><%= "#{booking.painting.name}" %></p>
-  </div>
-  <div class="message-body">
-    <p><strong><%= "BOOKING N°00#{booking.id}" %></strong></p>
-    <p><%= "Title : #{booking.painting.name}" %></p>
-    <p><%= "Author : #{booking.painting.author}" %></p>
-    <p><%= "Rent from #{booking.start_date} to #{booking.end_date}" %></p>
-  </div>
-  <div class="message-status">
-    <p class="status pending">Done</p>
-    <p class="price"><%= "#{booking.total_paid} €" %></p>
+<div class="container">
+  <div class="message">
+    <img class="avatar-large" src="<%= booking.painting.photo %>">
+    <div class="message-name">
+      <h3><%= "Painting Title" %></h3>
+      <p><%= "#{booking.painting.name}" %></p>
+    </div>
+    <div class="message-body">
+      <p><strong><%= "BOOKING N°00#{booking.id}" %></strong></p>
+      <p><%= "Title : #{booking.painting.name}" %></p>
+      <p><%= "Author : #{booking.painting.author}" %></p>
+      <p><%= "Rent from #{booking.start_date} to #{booking.end_date}" %></p>
+    </div>
+    <div class="message-status">
+      <p class="status pending">Done</p>
+      <p class="price"><%= "#{booking.total_paid} €" %></p>
+    </div>
   </div>
 </div>

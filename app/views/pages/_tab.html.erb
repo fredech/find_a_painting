@@ -66,7 +66,7 @@
                 <li style= "width: 15%;"><h2><%= painting.location %></h2></li>
                 <li style= "width: 15%;"><h2><%= painting.style %></h2></li>
                 <li style= "width: 15%;"><h2><%= painting.price %></h2></li>
-                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%= painting.photo %>"><%= link_to ' Edit ', dpainting_path(painting), method: :update, remote: true%><%= link_to ' | Delete ', painting_path(painting), method: :delete, remote: true %></h2></li>
+                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%= painting.photo %>"><%= link_to ' Edit ', edit_painting_path(painting), method: :get%><%= link_to ' | Delete ', painting_path(painting), method: :delete, remote: true %></h2></li>
               </ul>
             <% end %>
           </div>
@@ -80,17 +80,19 @@
         <ul>
           <ul class="list-inline bookings">
             <li style= "width: 15%;"><h2><%= "BOOKING N°" %></h2></li>
-            <li style= "width: 20%;"><h2><%= "Title" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Title" %></h2></li>
             <li style= "width: 15%;"><h2><%= "Author" %></h2></li>
-            <li style= "width: 50%;"><h2><%= "Rent Period" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Price" %></h2></li>
+            <li style= "width: 40%;"><h2><%= "Rent Period" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
             <% @bookings.each do |booking| %>
               <ul class="list-inline bookings">
                 <li style= "width: 15%;"><h2><%= "00#{booking.id}" %></h2></li>
-                <li style= "width: 20%;"><h2><%= booking.painting.name %></h2></li>
+                <li style= "width: 15%;"><h2><%= booking.painting.name %></h2></li>
                 <li style= "width: 15%;"><h2><%= booking.painting.author %></h2></li>
-                <li style= "width: 50%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><%= link_to 'Edit', "", class: "button" %></h2></li>
+                <li style= "width: 15%;"><h2><%= "#{booking.total_paid} €" %></h2></li>
+                <li style= "width: 40%;"><h2><%= "from #{booking.start_date} to #{booking.end_date}.  " %><%= link_to 'Edit', edit_painting_booking_path(booking.painting, booking), class: "button" %></h2></li>
               </ul>
             <% end %>
           </div>

@@ -5,7 +5,7 @@
     <div class="form">
       <%= simple_form_for(@painting) do |f| %>
         <%= f.input :name, label: "What is the Painting's name ?", placeholder: 'La Joconde' %>
-        <%= f.input :location, label: 'where is the painting?', placeholder: 'Paris' %>
+        <%= f.input :location, label: "Address", placeholder: '16 villa gaudelet, Paris', input_html: { id: 'flat_address'} %>
         <%= f.input :price, label: 'Rental Price per day in €', placeholder: '300 000 ' %>
         <%= f.input :author, label: "Artist's name", placeholder: 'De Vinci' %>
         <%= f.input :style, label: "What is the painting's style ?", placeholder: 'Choose in the list', collection: Painting::STYLES, input_html:{class: 'select2'} %>

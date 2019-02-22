@@ -45,7 +45,7 @@ puts "#{User.count} users created"
 puts "create Paintings ..."
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586498/Paintings/whilster.jpg"
-painting_one = Painting.new(name: 'Night', location: "8 rue Monsieur Le Prince, Paris", price: "100", author: "Whistler", style: "Painterly", user: alice)
+painting_one = Painting.new(name: 'Night', location: "53 rue d'Hauteville, Paris", price: "100", author: "Whistler", style: "Painterly", user: alice)
 painting_one.remote_photo_url = url
 painting_one.save!
 

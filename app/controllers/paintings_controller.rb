@@ -86,30 +86,6 @@ class PaintingsController < ApplicationController
         query = sql_query, param_1, param_2, param_3
         @paintings = Painting.where(query)
       end
-    #   @painting = policy_scope(Painting)
-    # if params[:paintings][:author].nil?
-    #   if params[:paintings][:location].empty? && params[:paintings][:style].empty?
-    #     @paintings = Painting.all
-    #   elsif params[:paintings][:location].empty? && params[:paintings][:style].empty? == false
-    #      param_1=  "%#{params[:paintings][:style]}%"
-    #      sql_query = "paintings.style @@ ?"
-    #      query = sql_query, param_1
-    #      @paintings = Painting.where(query)
-    #   elsif params[:paintings][:style].empty? && params[:paintings][:location].empty? == false
-    #      param_1=  "%#{params[:paintings][:location]}%"
-    #      sql_query = "paintings.location @@ ?"
-    #      query = sql_query, param_1
-    #      @paintings = Painting.where(query)
-    #   else
-    #     sql_query = " \
-    #       paintings.location @@ ? \
-    #       AND paintings.style @@ ? \
-    #     "
-    #     param_1 = "%#{params[:paintings][:location]}%"
-    #     param_2 = "%#{params[:paintings][:style]}%"
-    #     query = sql_query, param_1, param_2
-    #     @paintings = Painting.where(query)
-    #   end
     end
 
     @markers = @paintings.map do |painting|
@@ -143,8 +119,6 @@ class PaintingsController < ApplicationController
   end
 
   def edit
-    @painting = Painting.new
-    authorize @painting
   end
 
   def create
@@ -152,7 +126,7 @@ class PaintingsController < ApplicationController
     @painting.user = current_user
     authorize @painting
     if @painting.save
-      redirect_to @painting, notice: 'Painting was successfully created.'
+      redirect_to dashboard_path, notice: 'Painting was successfully created.'
     else
       render :new
     end
