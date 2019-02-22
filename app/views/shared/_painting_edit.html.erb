@@ -2,17 +2,13 @@
   <figure class="snip1423_sh">
     <%= cl_image_tag painting.photo, height: 280, crop: :fit%>
     <figcaption>
-      <h3>Title : <%= painting.name  %></h3>
-      <p>Author : <%= painting.author  %></p>
-      <p>Style : <%= painting.style  %></p>
-      <p>Owner : <%= "#{painting.user.first_name} #{painting.user.last_name}" %></p>
-      <%= simple_form_for [painting, Booking.new] do |f| %>
-        <%= f.input :start_date, input_html: { label: 'Start Date', value: start_date, class: 'form-date' }, label_html: { class: 'form-label' } %>
-        <%= f.input :end_date, input_html: { label: 'End Date', value: end_date, class: 'form-date' }, label_html: { class: 'form-label' } %>
-        <i><%= f.submit " Book ", class: 'avatar_book_btn' %></i>
+      <%= simple_form_for painting do |f| %>
+        <%= f.input :name, input_html: { label: 'Title', value: painting.name, class: 'form-date' }, label_html: { class: 'form-label' } %>
+        <%= f.input :author, input_html: { label: 'Author', value: painting.author, class: 'form-date' }, label_html: { class: 'form-label' } %>
+        <%= f.input :style, input_html: { label: 'Style', value: painting.style, class: 'form-collection select2' }, label_html: { class: 'form-label-edit' }, collection: Painting::STYLES %>
+        <p>Owner : <%= "#{painting.user.first_name} #{painting.user.last_name}" %></p>
+        <i><%= f.submit "Update", class: 'avatar_book_btn' %></i>
       <% end %>
-      <div class="price">
-       Total Price : <%= total_paid %> €
       </div>
   </figure>
 </div>

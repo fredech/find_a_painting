@@ -134,7 +134,7 @@ class PaintingsController < ApplicationController
 
   def update
     if @painting.update(painting_params)
-      redirect_to painting_path(@painting_id), notice: 'Painting was successfully updated'
+      redirect_to dashboard_path, notice: 'Painting was successfully updated'
     else
       render :edit
     end
@@ -157,7 +157,6 @@ class PaintingsController < ApplicationController
   end
 
   def search
-
   end
 
   private
