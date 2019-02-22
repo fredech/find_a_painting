@@ -23,6 +23,7 @@ gem 'carrierwave', '~> 1.2'
 gem "pundit"
 gem "geocoder"
 gem 'pg_search'
+gem 'faker'
 
 
 group :development do

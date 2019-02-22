@@ -12,9 +12,9 @@
         <div class="price">
          Total Price : <%= @total_paid %> €
         </div>
-      <%= simple_form_for [@painting, Booking.new], class: 'form_date'  do |f| %>
-        <%= f.input :start_date, label: 'Start Date', input_html: { value: @start_date } %>
-        <%= f.input :end_date, label: 'End Date', input_html: { value: @end_date } %>
+      <%= simple_form_for [@painting, Booking.new] do |f| %>
+        <%= f.input :start_date, label: 'Start Date', input_html: { value: @start_date, class: 'form-date' } %>
+        <%= f.input :end_date, label: 'End Date', input_html: { value: @end_date, class: 'form-date' } %>
         <i><%= f.submit " Book ", class: 'avatar_book_btn' %></i>
       <% end %>
     </figure>
