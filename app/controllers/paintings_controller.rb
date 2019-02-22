@@ -168,8 +168,18 @@ class PaintingsController < ApplicationController
 
   def destroy
     @painting = Painting.find(params[:id])
-    @painting.destroy
-    redirect_to paintings_path, notice: 'Painting was successfully destroyed'
+    @painting_id = @painting.id
+    if @painting.destroy
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js { } # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'dashboard' }
+        format.js { } # <-- idem
+      end
+    end
   end
 
   def search
