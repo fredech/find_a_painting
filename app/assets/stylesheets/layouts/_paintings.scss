@@ -1,5 +1,7 @@
 #container-cards-map {
-  top: 0;
+  // top: 0;
+  display: flex;
+  width: 100vw;
 }
 
 .container-cards h4 {
@@ -12,14 +14,23 @@
   // text-align: center;
 }
 
+
+
+.container-cards {
+  width: 50%;
+}
+
 .container-map {
-  flex: 0 0 500px;
-  height: 100vh;
-  position: sticky !important;
-  top: 80px !important;
   margin-top: 30px;
-  margin-right: 20px;
+}
+
+#map {
+  position: sticky !important;
+  top: 75px !important;
+  width: 50%;
+  height: 100vh;
   border: 2px solid rgba(150, 150, 150, 0.3);
+  // flex: 0 0 500px;
 }
 
 #container-search {

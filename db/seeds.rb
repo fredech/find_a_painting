@@ -104,6 +104,11 @@ painting_twelve = Painting.new(name: 'auto-portrait', location: "48 Doughty St, 
 painting_twelve.remote_photo_url = url
 painting_twelve.save!
 
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550674174/dessin_kevin.jpg"
+painting_last = Painting.new(name: 'auto-portrait', location: "16 villa Gaudelet, 75011 Paris", price: "1100000", author: "Kevin Robert", style: "Painterly", user: users.sample)
+painting_last.remote_photo_url = url
+painting_last.save!
+
 
 puts "#{Painting.count} paintings created"
 
