@@ -1,0 +1,9 @@
+console.log('coucou')
+
+function deletePainting() {
+  const painting = document.getElementById('<%= @painting_id %>');
+  painting.remove();
+}
+
+
+deletePainting();
