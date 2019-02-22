@@ -4,7 +4,7 @@
     <%= link_to root_path, class: "navbar-wagon-brand flip-vertical-left" do %>
       <%= image_tag "FAP_Logo-flipH.png" %>
     <% end %>
-    <div class="navbar-wagon-brand-title">FaP</div>
+    <div class="navbar-wagon-brand-title" style="font-family: 'Finger Paint', cursive; font-size: 30px; color: black;">FaP</div>
   </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -16,6 +16,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+<!--           <img class="avatar dropdown-toggle" id="navbar-wagon-menu" src="<%= current_user.photo %>" "data-toggle" => "dropdown" > -->
           <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
