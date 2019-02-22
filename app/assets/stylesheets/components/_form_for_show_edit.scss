@@ -1,0 +1,62 @@
+.form-date {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-weight: 300;
+  vertical-align: middle;
+
+  width: 110px;
+  text-align: center;
+  border: 0px solid;
+  margin-right: 33%;
+  float: right;
+  box-shadow: none;
+}
+
+.form-date:hover {
+  border: 1px solid rgb(230,230,230);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.form-label {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-weight: 300;
+  margin-left: 20%;
+  align-items: baseline;
+}
+
+.form-input {
+  font-family: $heading;
+  font-size: .9em;
+  padding: 7px 0;
+  color: $black;
+  border: none;
+  box-shadow: none;
+  width: 80%;
+}
+.form-input:hover {
+  border: 1px solid rgb(230,230,230);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.tab_container_edit input {
+  border: none;
+  font-family: $body;
+  padding: 2px;
+  margin: 0;
+}
+.form-button {
+  color: #469AE0;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 18px;
+  line-height: 1.42857;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+}
+.form-button:hover {
+  text-decoration: none;
+  font-weight: 900;
+  background-color: white;
+}
