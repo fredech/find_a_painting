@@ -2,23 +2,7 @@
 <br>
 <br>
 <div id="painting-container">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <figure class="snip1423_sh">
-      <%= cl_image_tag @painting.photo, height: 280, crop: :fit%>
-      <figcaption>
-        <h3>Title : <%= @painting.name  %></h3>
-        <p>Author : <%= @painting.author  %></p>
-        <p>Style : <%= @painting.style  %></p>
-        <div class="price">
-         Total Price : <%= @total_paid %> €
-        </div>
-      <%= simple_form_for [@painting, Booking.new], class: 'form_date'  do |f| %>
-        <%= f.input :start_date, label: 'Start Date', input_html: { value: @start_date } %>
-        <%= f.input :end_date, label: 'End Date', input_html: { value: @end_date } %>
-        <i><%= f.submit " Book ", class: 'avatar_book_btn' %></i>
-      <% end %>
-    </figure>
-  </div>
+  <%= render 'shared/painting_show', painting: @painting, total_paid: @total_paid, start_date: @start_date, end_date: @end_date %>
 </div>
 
 

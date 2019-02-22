@@ -25,10 +25,12 @@
       <p><%= "#{current_user.email} " %><button class="tab_btn">update</button></p>
       <h2>Password </h2>
       <p>••••••• <button class="tab_btn">Change</button></p>
+      <h2>Avatar</h2>
+      <img class="avatar-large" src="#{current_user.photo}">
     </div>
 
     <div class="payment noshow">
-      <h1>Payment Info</h1>
+      <h1><strong>Payment Info</strong></h1>
       <h2>Payment Method</h2>
       <p>Mastercard •••• •••• •••• 0000 <button class="tab_btn">update</button></p>
       <h2>Billing Address</h2>
