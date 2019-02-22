@@ -1,3 +1,4 @@
+<% require 'date' %>
 <div class="col-xs-12 col-sm-12 col-md-6">
   <figure class="snip1423">
     <%= cl_image_tag painting.photo, height: 200, width: 260, crop: :fill%>
@@ -8,7 +9,10 @@
         <%= painting.price %> € / day
       </div>
     </figcaption><i>Details</i>
-    <a href=""></a>
-    <%= link_to '', painting_path(painting.id, start_date: params[:paintings][:start_date], end_date: params[:paintings][:end_date]) %>
+    <%  if params[:paintings][:start_date].empty? || params[:paintings][:end_date].empty? %>
+      <%= link_to '', painting_path(painting.id, start_date: "", end_date: "")%>
+    <% else %>
+      <%= link_to '', painting_path(painting.id, start_date: params[:paintings][:start_date], end_date: params[:paintings][:end_date]) %>
+    <% end %>
   </figure>
 </div>

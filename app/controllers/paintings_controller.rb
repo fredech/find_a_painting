@@ -124,8 +124,14 @@ class PaintingsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @start_date = params[:start_date]
-    @end_date = params[:end_date]
+    @d = DateTime.now
+    if params[:start_date].empty? || params[:end_date].empty?
+      @start_date = @d.strftime("%d/%m/%Y")
+      @end_date = @d.next_day.strftime("%d/%m/%Y")
+    else
+      @start_date = params[:start_date]
+      @end_date = params[:end_date]
+    end
     start = DateTime.parse(@start_date)
     endate = DateTime.parse(@end_date)
     @total_paid = ((endate - start) * @painting.price).to_i
