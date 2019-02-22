@@ -53,6 +53,7 @@
             <li style= "width: 15%;"><h2><%= "Style" %></h2></li>
             <li style= "width: 15%;"><h2><%= "Price per day" %></h2></li>
             <li style= "width: 25%;"><h2><%= "Image" %></h2></li>
+            <li style= "width: 25%;"><h2><%= "Action" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
             <% @paintings.each do |painting| %>
@@ -62,7 +63,8 @@
                 <li style= "width: 15%;"><h2><%= painting.location %></h2></li>
                 <li style= "width: 15%;"><h2><%= painting.style %></h2></li>
                 <li style= "width: 15%;"><h2><%= painting.price %></h2></li>
-                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%= painting.photo %>"><%= link_to 'Edit', "", class: "button" %></h2></li>
+                <li style= "width: 25%;"><img class="avatar-large" src="<%= painting.photo %>">
+                <li style= "width: 25%;"><h2><%= link_to 'Edit', painting, method: :update, remote: true%> | </h2> <h2><%= link_to 'Delete', dashboard_path, method: :destroy, remote: true %></h2></li>
               </ul>
             <% end %>
           </div>

@@ -167,6 +167,7 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
+    @painting = Painting.find(params[:id])
     @painting.destroy
     redirect_to paintings_path, notice: 'Painting was successfully destroyed'
   end
