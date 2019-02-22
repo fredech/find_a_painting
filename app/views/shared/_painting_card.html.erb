@@ -9,7 +9,6 @@
       </div>
     </figcaption><i>Details</i>
     <a href=""></a>
-    <raise>
-    <%= link_to '', painting_path(painting.id, start_date: params[:search][:start_date], end_date: params[:search][:end_date]) %>
+    <%= link_to '', painting_path(painting.id, start_date: params[:paintings][:start_date], end_date: params[:paintings][:end_date]) %>
   </figure>
 </div>
