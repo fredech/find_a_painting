@@ -10,25 +10,47 @@
 </div>
 
 <div id="container-cards-map">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6">
-      <div class="container-cards">
-        <% @paintings.each do |painting| %>
-          <%= render 'shared/painting_card', painting: painting %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6">
-      <div class="container-map"
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
-    </div>
-
+  <div class="container-cards">
+    <% @paintings.each do |painting| %>
+      <%= render 'shared/painting_card', painting: painting %>
+    <% end %>
   </div>
+
+  <div class="container-map"
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
 
 
+<!-- <br>
+<br>
+<br>
+<br>
+<div id="container-search">
+  <%#= render 'shared/searchforminline' %>
+</div>
+<div id="painting-no">
+  <h4><%= @paintings.length %> Paintings for you</h4>
+</div>
+
+<div id="container-cards-map">
+  <div class="row">
+    <div class="cards-list">
+
+      <div class="container-cards">
+        <#% @paintings.each do |painting| %>
+          <%#= render 'shared/painting_card', painting: painting %>
+        <#% end %>
+      </div>
+
+    </div>
+
+      <div class="container-map"
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+    </div>
+</div> -->
