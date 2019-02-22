@@ -45,22 +45,22 @@ puts "#{User.count} users created"
 puts "create Paintings ..."
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586498/Paintings/whilster.jpg"
-painting_one = Painting.new(name: 'Night', location: "8 rue Monsieur Le Prince, Paris", price: "100", author: "Whistler", style: "Painterly", user: users.sample)
+painting_one = Painting.new(name: 'Night', location: "8 rue Monsieur Le Prince, Paris", price: "100", author: "Whistler", style: "Painterly", user: alice)
 painting_one.remote_photo_url = url
 painting_one.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586441/Paintings/van-gogh.jpg"
-painting_two = Painting.new(name: 'Nighttime', location: "6 place des Vosges, Paris", price: "200", author: "Van Gogh", style: "Painterly", user: users.sample)
+painting_two = Painting.new(name: 'Nighttime', location: "6 place des Vosges, Paris", price: "200", author: "Van Gogh", style: "Painterly", user: alice)
 painting_two.remote_photo_url = url
 painting_two.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586441/Paintings/morisot.jpg"
-painting_three = Painting.new(name: 'Girl', location: "11, avenue du Président Wilson}, Paris", price: "300", author: "Morisot", style: "Painterly", user: users.sample)
+painting_three = Painting.new(name: 'Girl', location: "11, avenue du Président Wilson}, Paris", price: "300", author: "Morisot", style: "Painterly", user: alice)
 painting_three.remote_photo_url = url
 painting_three.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550586441/Paintings/picasso.jpg"
-painting_four = Painting.new(name: 'Woman', location: "100 bis, rue d'Assas, Paris", price: "500", author: "Picasso", style: "Painterly", user: users.sample)
+painting_four = Painting.new(name: 'Woman', location: "100 bis, rue d'Assas, Paris", price: "500", author: "Picasso", style: "Painterly", user: alice)
 painting_four.remote_photo_url = url
 painting_four.save!
 
